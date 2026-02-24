@@ -33,8 +33,6 @@ Sistema desenvolvido para empresa de estruturas metálicas que automatiza o prim
 
 </div>
 
-> 💡 **Nota:** Adicione suas capturas de tela na pasta `screenshots/` na raiz do projeto.
-
 ## 🏗️ Arquitetura
 
 ```
