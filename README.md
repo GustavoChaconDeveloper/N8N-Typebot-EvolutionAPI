@@ -26,13 +26,10 @@ Sistema desenvolvido para empresa de estruturas metálicas que automatiza o prim
 <img src="./Fluxo%20-%20TypeBot%201.png" alt="Fluxo TypeBot" width="800"/>
 
 ### Workflow N8N
-<img src="./screenshots/n8n-workflow.png" alt="Workflow N8N" width="800"/>
+<img src="./N8N%20-%20Workflow.png" alt="Workflow N8N" width="800"/>
 
 ### Bot em Ação
-<img src="./screenshots/bot-whatsapp.png" alt="Bot WhatsApp" width="400"/>
-
-### Integração Google Sheets
-<img src="./screenshots/google-sheets.png" alt="Google Sheets" width="800"/>
+<img src="./Print%20do%20fluxo%20no%20Whatsapp.jpeg" alt="Bot WhatsApp" width="400"/>
 
 </div>
 
