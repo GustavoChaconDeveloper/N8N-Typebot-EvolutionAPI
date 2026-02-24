@@ -1,0 +1,328 @@
+{
+  "name": "Bot WhatsApp Funcionando",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "typebot-webhook",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -704,
+        -352
+      ],
+      "id": "58ba972a-2bb6-4203-a036-5f73b3a2775c",
+      "name": "Webhook Unificado",
+      "webhookId": "SEU_WEBHOOK_ID"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "condition1",
+              "leftValue": "={{ $json.body.opcao_digitada }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -432,
+        -352
+      ],
+      "id": "f054d53d-072f-47c7-a774-9d5b9d04d5f9",
+      "name": "Verificar Etapa"
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "SEU_GOOGLE_SHEETS_ID",
+          "mode": "list",
+          "cachedResultName": "Sua Planilha",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/SEU_GOOGLE_SHEETS_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Pagina1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/SEU_GOOGLE_SHEETS_ID/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.body.id }}",
+            "Número": "={{ $json.body.telefone }}",
+            "Nome do Contato": "={{ $json.body.nome }}",
+            "Data": "={{ $json.body.data }}",
+            "Hora": "={{ $json.body.hora }}",
+            "Instancia ": "={{ $json.body.instancia }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Número",
+              "displayName": "Número",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome do Contato",
+              "displayName": "Nome do Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data",
+              "displayName": "Data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Instancia ",
+              "displayName": "Instancia ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -144,
+        -464
+      ],
+      "id": "5cf4c3f9-cc58-463a-8e4e-1aa65f530548",
+      "name": "Gravar Novo Lead",
+      "credentials": {
+        "googleApi": {
+          "id": "SUA_CREDENCIAL_ID",
+          "name": "Sua conta Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "serviceAccount",
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "SEU_GOOGLE_SHEETS_ID",
+          "mode": "list",
+          "cachedResultName": "Sua Planilha",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/SEU_GOOGLE_SHEETS_ID/edit"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1479327580,
+          "mode": "list",
+          "cachedResultName": "Etapas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/SEU_GOOGLE_SHEETS_ID/edit#gid=1479327580"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.body.id }}",
+            "Número": "={{ $json.body.telefone }}",
+            "Nome do Contato": "={{ $json.body.nome }}",
+            "Data": "={{ $json.body.data }}",
+            "Hora": "={{ $json.body.hora }}",
+            "Instancia ": "={{ $json.body.instancia }}",
+            "Opção selecionada": "={{ $json.body.opcao_digitada }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Número",
+              "displayName": "Número",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Nome do Contato",
+              "displayName": "Nome do Contato",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Data",
+              "displayName": "Data",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hora",
+              "displayName": "Hora",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Instancia ",
+              "displayName": "Instancia ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Opção selecionada",
+              "displayName": "Opção selecionada",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -144,
+        -224
+      ],
+      "id": "ffc26d30-a615-49b0-a9f6-d67a747f2638",
+      "name": "Gravar Etapas1",
+      "credentials": {
+        "googleApi": {
+          "id": "SUA_CREDENCIAL_ID",
+          "name": "Sua conta Google Sheets"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook Unificado": {
+      "main": [
+        [
+          {
+            "node": "Verificar Etapa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verificar Etapa": {
+      "main": [
+        [
+          {
+            "node": "Gravar Etapas1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gravar Novo Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "saveDataSuccessExecution": "all",
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true
+  },
+  "versionId": "5ac6d3a3-76ec-4f3e-8eb9-a1cadc56831f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "SEU_INSTANCE_ID"
+  },
+  "id": "SEU_WORKFLOW_ID",
+  "tags": []
+}
