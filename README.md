@@ -23,7 +23,7 @@ Sistema desenvolvido para empresa de estruturas metálicas que automatiza o prim
 <div align="center">
   
 ### Fluxo do TypeBot
-<img src="./screenshots/typebot-flow.png" alt="Fluxo TypeBot" width="800"/>
+<img src="./Fluxo%20-%20TypeBot%201.png" alt="Fluxo TypeBot" width="800"/>
 
 ### Workflow N8N
 <img src="./screenshots/n8n-workflow.png" alt="Workflow N8N" width="800"/>
