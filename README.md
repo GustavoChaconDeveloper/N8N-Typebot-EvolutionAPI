@@ -18,6 +18,26 @@ Sistema desenvolvido para empresa de estruturas metálicas que automatiza o prim
 - **Porta-Paletes**
 - **Mini Porta-Paletes**
 
+## 📸 Screenshots
+
+<div align="center">
+  
+### Fluxo do TypeBot
+<img src="./screenshots/typebot-flow.png" alt="Fluxo TypeBot" width="800"/>
+
+### Workflow N8N
+<img src="./screenshots/n8n-workflow.png" alt="Workflow N8N" width="800"/>
+
+### Bot em Ação
+<img src="./screenshots/bot-whatsapp.png" alt="Bot WhatsApp" width="400"/>
+
+### Integração Google Sheets
+<img src="./screenshots/google-sheets.png" alt="Google Sheets" width="800"/>
+
+</div>
+
+> 💡 **Nota:** Adicione suas capturas de tela na pasta `screenshots/` na raiz do projeto.
+
 ## 🏗️ Arquitetura
 
 ```
