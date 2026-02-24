@@ -22,3 +22,14 @@ Sistema desenvolvido para empresa de estruturas metálicas que automatiza o prim
 
 ```
 WhatsApp → TypeBot → Webhook (N8N) → Google Sheets
+
+## 📊 Fluxo de Dados
+
+1. **Início**: Cliente envia mensagem no WhatsApp
+2. **Captura**: TypeBot captura dados iniciais (nome, telefone, data/hora)
+3. **Webhook**: Dados são enviados para N8N via webhook
+4. **Validação**: N8N verifica se é novo lead ou lead em etapa
+5. **Gravação**: 
+   - Novo lead → Grava na aba "Página1"
+   - Lead em etapa → Grava na aba "Etapas"
+6. **Continuação**: Bot continua fluxo de acordo com opção escolhida
